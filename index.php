@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testando PHP</title>
+    <title>Dados do Servidor</title>
 </head>
 <body>
-    <h1>
-       <?php 
-       echo "Olá, Mundo! \u{1F30E}";
-       ?> 
-    </h1>
-    <p>PHP é um pré-processador de HTML</p>    
+    <h1>Dados do Servidor</h1>
+    <?php 
+    phpinfo();
+    ?>
 </body>
 </html>
