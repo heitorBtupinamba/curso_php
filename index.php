@@ -1,45 +1,47 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tipos Primitivos em PHP</title>
-</head>
-<body>
-    <h1>Teste de Tipos Primitivos em PHP</h1>
-
 <?php 
 
-//0x é Hexadecimal --- 0b é  Binário --- 0 é Octal
-    
-$numer = 0x1A;
-echo "O valor da primeira variável é $numer<br>";
+$db = "Olá Mundo \u{1F30E}";
+echo "$db <br>";
+//Quando são usadas aspas duplas (Double Quoted), o PHP interpreta e analisa o conteúdo para exibi-lo
 
-$numero = 300;
-echo "A segunda variável tem o seguinte tipo e valor: "; var_dump($numero); echo "<br>";
+$smp = 'Olá Mundo $db \u{1F30E}';
+echo "$smp <br>";
+echo '$smp<br>';
+//Quando são usadas aspas simples (Simple Quoted), o conteúdo é mostrado sem interpretação
 
-$testeUm = 10.7;
-echo "A terceira variável tem o seguinte tipo e valor: "; var_dump($testeUm); echo "<br>";
+const ESTADO = "MG";
+echo "Eu moro em ".ESTADO; echo "<br>";
+//Constantes devem ser exibidas usando o Operador de Concatenação (.), já que elas não possuem o identificador $ como as Variáveis
 
-$testeDois = false;
-echo "A quarta variável tem o seguinte tipo e valor: "; var_dump($testeDois); echo "<br>";
+$nome = "Rodrigo";
+$sobrenome = "Nogueira";
+echo "$nome \"Minotauro\" $sobrenome <br>";
+//Para exibir um termo entre aspas, pode ser usado a Sequência de Escape --> \"  \"
 
-$testeTres = "Heitor";
-echo "A quinta variável tem o seguinte tipo e quantidade de caracteres: "; var_dump($testeTres); echo "<br>";
+//Escape Sequences(sequências de escape) que podem ser úteis:
+// \n ---> Nova linha
+// \t ---> Tabulação Horizontal
+// \\ ---> Barra Invertida
+// \$ ---> Sinal de Cifrão
+// \u{} ---> Codepoint Unicode(como símbolos e emojis)
 
-$testeQuatro = 3e2;
-echo "A sexta variável tem o seguinte tipo e valor: "; var_dump($testeQuatro); echo "<br>";
+//Sintaxes de String que podem ser úteis:
 
-$vet = [2,true,7.5,"Heitor"];
-echo "Dentro do vetor(ou array) há as seguintes posições, tipos e valores: ";var_dump($vet); echo "<br>";
+//Heredoc ---> Escrever em múltiplas linha COM interpretador *OBS : Só funciona com saída de Texto, HTML não!
+$curso = "PHP";
+$ano = date('Y');
+echo <<< FRASE
+    Estou estudando $curso
+        no ano de $ano <br>
+FRASE;
 
-class Pessoa {
-    private string $nome;
-}
 
-$p = new Pessoa;
-echo "Testando o tipo Obejct:  "; var_dump($p);
+//Nowdoc ---> Escrever em múltiplas linha SEM interpretador('') *OBS : Só funciona com saída de Texto, HTML não!
+$curso_two = "PHP";
+$ano_two = date('Y');
+echo <<< 'FRASE'
+    Estou estudando $curso_two
+        no ano de $ano_two
+FRASE;
 
-?>   
-</body>
-</html>
+?>
